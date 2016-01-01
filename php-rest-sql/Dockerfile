@@ -13,9 +13,9 @@ WORKDIR /home/${USER}
 
 RUN curl -sSfLo- $REPO | tar zxf - --strip-components=1
 
-COPY entrypoint.sh /home/${USER}
+COPY entrypoint.sh /
 
-ENTRYPOINT [ "./entrypoint.sh" ]
+ENTRYPOINT [ "/entrypoint.sh" ]
 CMD [ "php", "-S", "0.0.0.0:9000" ]
 
 EXPOSE 9000

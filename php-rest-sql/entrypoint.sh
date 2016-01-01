@@ -2,8 +2,6 @@
 
 set -e
 
-env | grep --color ^MYSQL
-
 # Rewrite the default config file to a new location.
 sed -i \
   -e "/^baseURL/c\baseURL = \"\"" \
@@ -12,7 +10,5 @@ sed -i \
   -e "/^;\?username/c\username = \"${MYSQL_ENV_MYSQL_USER}\"" \
   -e "/^;\?password/c\password = \"${MYSQL_ENV_MYSQL_PASSWORD}\"" \
   phprestsql.ini
-
-cat phprestsql.ini
 
 exec "${@}"
