@@ -1,0 +1,14 @@
+php-rest-sql:
+  build: php-rest-sql
+  ports:
+    - "9000:9000"
+  links:
+    - db:mysql
+
+db:
+  build: db
+  environment:
+    MYSQL_DATABASE: foo
+    MYSQL_USER: foo
+    MYSQL_PASSWORD: foo
+    MYSQL_ROOT_PASSWORD: 'yes'
